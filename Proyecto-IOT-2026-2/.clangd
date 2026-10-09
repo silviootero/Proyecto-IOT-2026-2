@@ -1,0 +1,16 @@
+# Clangd configuration for ESP-IDF / PlatformIO on Windows
+# Fixes "sys/features.h file not found" IntelliSense errors by telling clangd
+# where the picolibc/newlib system headers live.
+
+CompileFlags:
+  Add:
+    - -isystem
+    - C:/Users/SILVIO/.platformio/packages/toolchain-xtensa-esp-elf/picolibc/include
+    - -isystem
+    - C:/Users/SILVIO/.platformio/packages/toolchain-xtensa-esp-elf/xtensa-esp-elf/sys-include
+  Remove:
+    - -mlongcalls
+    - -fno-tree-switch-conversion
+    - -fstrict-volatile-bitfields
+    - -fzero-init-padding-bits=*
+    - -specs=*
